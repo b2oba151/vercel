@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Tableau pour stocker les PID des tâches lancées
+declare -a pids
+
+# Fonction pour arrêter toutes les tâches
+arreter_taches() {
+    for pid in "${pids[@]}"; do
+        kill "$pid" >/dev/null 2>&1
+    done
+    exit
+}
+
+# Fonction pour gérer l'interruption du script avec Ctrl+C
+gestion_ctrl_c() {
+    echo "Interruption détectée. Arrêt des tâches..."
+    arreter_taches
+}
+
+# Fonction pour afficher le menu
+afficher_menu() {
+    echo "1. Lancer php artisan serve"
+    echo "2. Lancer php artisan queue:listen"
+    echo "3. Lancer ./MailHog_linux_amd64"
+    echo "4. Lancer toutes les tâches"
+    echo "5. Quitter"
+}
+
+# Définition du gestionnaire d'interruption Ctrl+C
+trap gestion_ctrl_c SIGINT
+
+# Boucle principale
+while true; do
+    afficher_menu
+
+    read -p "Veuillez entrer les numéros des tâches à lancer (séparés par des espaces) : " choix
+
+    case $choix in
+        1)
+            php artisan serve &
+            pids+=("$!")
+            ;;
+        2)
+            php artisan queue:listen &
+            pids+=("$!")
+            ;;
+        3)
+            ./MailHog_linux_amd64 &
+            pids+=("$!")
+            ;;
+        4)
+            php artisan serve &
+            pids+=("$!")
+            php artisan queue:listen &
+            pids+=("$!")
+            ./MailHog_linux_amd64 &
+            pids+=("$!")
+            ;;
+        5)
+            echo "Au revoir !"
+            arreter_taches
+            ;;
+        *)
+            # Séparation des numéros de tâches
+            read -ra taches <<< "$choix"
+
+            # Boucle pour lancer les tâches sélectionnées
+            for tache in "${taches[@]}"; do
+                case $tache in
+                    1)
+                        php artisan serve &
+                        pids+=("$!")
+                        ;;
+                    2)
+                        php artisan queue:listen &
+                        pids+=("$!")
+                        ;;
+                    3)
+                        ./MailHog_linux_amd64 &
+                        pids+=("$!")
+                        ;;
+                    *)
+                        echo "Numéro de tâche invalide : $tache"
+                        ;;
+                esac
+            done
+            ;;
+    esac
+
+    echo # Ligne vide pour une meilleure lisibilité
+done

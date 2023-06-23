@@ -1,0 +1,121 @@
+<?php
+
+return [
+    'common' => [
+        'actions' => 'Actions',
+        'create' => 'Créer',
+        'edit' => 'Modifier',
+        'update' => 'Mettre à jour',
+        'new' => 'Nouveau',
+        'cancel' => 'Annuler',
+        'attach' => 'Attacher',
+        'detach' => 'Détacher',
+        'save' => 'Enregistrer',
+        'delete' => 'Supprimer',
+        'delete_selected' => 'Supprimer les sélectionnés',
+        'search' => 'Rechercher...',
+        'back' => 'Retour à l\'index',
+        'are_you_sure' => 'Êtes-vous sûr(e) ?',
+        'no_items_found' => 'Aucun élément trouvé',
+        'created' => 'Créé(e) avec succès',
+        'saved' => 'Enregistré(e) avec succès',
+        'removed' => 'Supprimé(e) avec succès',
+    ],
+
+    'users' => [
+        'name' => 'Utilisateurs',
+        'index_title' => 'Liste des utilisateurs',
+        'new_title' => 'Nouvel utilisateur',
+        'create_title' => 'Créer un utilisateur',
+        'edit_title' => 'Modifier un utilisateur',
+        'show_title' => 'Details de l\'utilisateur',
+        'inputs' => [
+            'name' => 'Nom',
+            'firstname' => 'Prénom',
+            'email' => 'Email',
+            'location' => 'Lieu',
+            'compte' => 'Compte',
+            'devise' => 'Devise',
+            'password' => 'Mot de passe',
+        ],
+    ],
+
+    'transactions' => [
+        'name' => 'Transactions',
+        'index_title' => 'Liste des transactions',
+        'new_title' => 'Nouvelle transaction',
+        'create_title' => 'Créer une transaction',
+        'edit_title' => 'Modifier une transaction',
+        'show_title' => 'Details de la transaction',
+        'inputs' => [
+            'vers' => 'Vers',
+            'prenom' => 'Prénom',
+            'envoye' => 'Envoyé',
+            'nom' => 'Nom',
+            'recu' => 'Reçu',
+            'frais' => 'Frais',
+            'taux' => 'Taux',
+            'charges' => 'Charges',
+            'statut' => 'Statut',
+            'description' => 'Description',
+            'user_id' => 'Utilisateur',
+        ],
+    ],
+
+    'variations' => [
+        'name' => 'Variations',
+        'index_title' => 'Liste des variations',
+        'new_title' => 'Nouvelle variation',
+        'create_title' => 'Créer une variation',
+        'edit_title' => 'Modifier une variation',
+        'show_title' => 'Details de la variation',
+        'inputs' => [
+            'avant' => 'Avant',
+            'apres' => 'Après',
+            'variation' => 'Variation',
+        ],
+    ],
+
+    'user_transactions' => [
+        'name' => 'Transactions utilisateur',
+        'index_title' => 'Liste des transactions',
+        'new_title' => 'Nouvelle transaction',
+        'create_title' => 'Créer une transaction',
+        'edit_title' => 'Modifier une transaction',
+        'show_title' => 'Details du transaction',
+        'inputs' => [
+            'vers' => 'Vers',
+            'nom' => 'Nom',
+            'prenom' => 'Prénom',
+            'envoye' => 'Envoyé',
+            'recu' => 'Reçu',
+            'frais' => 'Frais',
+            'taux' => 'Taux',
+            'charges' => 'Charges',
+            'statut' => 'Statut',
+            'description' => 'Description',
+        ],
+    ],
+
+    'roles' => [
+        'name' => 'Roles',
+        'index_title' => 'Liste desRoles',
+        'create_title' => 'Crée un nouveau Role',
+        'edit_title' => 'Modifié le Role',
+        'show_title' => 'Details du Role',
+        'inputs' => [
+            'name' => 'Nom',
+        ],
+    ],
+
+    'permissions' => [
+        'name' => 'Permissions',
+        'index_title' => 'Permissions List',
+        'create_title' => 'Create Permission',
+        'edit_title' => 'Edit Permission',
+        'show_title' => 'Show Permission',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
+];
